@@ -135,7 +135,7 @@ const Add = () => {
           placeholder="Link del video"
           type="url"
           name="video"
-          pattern="^https:\/\/www\.youtube\.com\/watch\?v=.*$"
+          pattern="^https:\/\/www\.youtube\.com\/embed\/$*"
           title="Por favor coloca una Url de youtube"
         >
           Video

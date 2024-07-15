@@ -4,6 +4,7 @@ import deleteIcon from "./delete.png"
 import editIcon from "./edit.png";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/Context";
+import { Link } from "react-router-dom";
 
 const CardContainer = styled.article`
   width: 374px;
@@ -50,12 +51,14 @@ const ButtonContainer = styled.div`
 `;
 
 const Card = ({ color, video }) => {
-  const { thumbnail, title } = video;
+  const { thumbnail, title, id } = video;
   const { setSelectedVideo, deleteVideo } = useContext(GlobalContext);
 
   return (
     <CardContainer>
-      <ImageStyles src={thumbnail} alt={title} />
+      <Link to={`/${video.id}`}>
+        <ImageStyles src={thumbnail} alt={title} />
+      </Link>
       <ButtonContainer $color={color}>
         <EditButton action={deleteVideo} video={video} img={deleteIcon}>
           Borrar

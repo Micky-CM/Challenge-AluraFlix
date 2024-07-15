@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import styled from "styled-components";
+import NotFound from "../NotFound";
 
 const PlayerContainer = styled.section`
   background-color: var(--main-background-black);
@@ -9,32 +10,27 @@ const PlayerContainer = styled.section`
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 60px;
-
-  @media (width > 1024px) {
-    justify-content: center;
-  }
 `;
 
 const TitleContainer = styled.div`
   text-align: center;
   color: var(--secondary-white);
-  display: flex;
-  flex-direction: column;
-  text-transform: uppercase;
-  gap: 10px;
 
   h1 {
-    font-size: 4rem;
+    font-size: 4.4rem;
     font-weight: bold;
+    margin-bottom: 1.5rem
   }
 `;
 
-const VideoContainer = styled.form`
+const VideoContainer = styled.section`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  iframe{
+  height: 80vh;
+}
 `;
 
 const Player = () => {
@@ -47,11 +43,13 @@ const Player = () => {
         setVideo(...data)
       })
   }, [])
+  if (!video) return <NotFound />
   return(
     <>
       <PlayerContainer>
         <TitleContainer>
-          <h1>Player</h1>
+          <h1>{video.title}</h1>
+        </TitleContainer>
         <VideoContainer>
           <iframe width="100%" height="100%"
             src={video.url}
@@ -59,7 +57,6 @@ const Player = () => {
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
           </iframe>
         </VideoContainer>
-        </TitleContainer>
       </PlayerContainer>
     </>
   )

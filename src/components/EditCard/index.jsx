@@ -101,11 +101,11 @@ const EditCard = ({ video, closeModal }) => {
   useEffect(() => {
     const getInitialValue = () => {
       if (video) {
-        handleInputChange("titulo", video.titulo || "");
-        handleInputChange("categoria", video.Categoria || "");
-        handleInputChange("imagen", video.linkImagenVideo || "");
-        handleInputChange("video", video.linkVideo || "");
-        handleInputChange("descripcion", video.descripcion || "");
+        handleInputChange("titulo", video.title || "");
+        handleInputChange("categoria", video.category || "");
+        handleInputChange("imagen", video.thumbnail || "");
+        handleInputChange("video", video.url || "");
+        handleInputChange("descripcion", video.description || "");
       }
     };
 
@@ -167,7 +167,7 @@ const EditCard = ({ video, closeModal }) => {
                 type="url"
                 from="modal"
                 name="video"
-                pattern="^https:\/\/www\.youtube\.com\/watch\?v=.*$"
+                pattern="^https:\/\/www\.youtube\.com\/embed\/$*"
                 title="Por favor coloca una Url de youtube"
               >
                 Video

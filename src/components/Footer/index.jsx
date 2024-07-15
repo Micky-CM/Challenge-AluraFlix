@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { LogoStyles } from "../Header";
+import { Link } from "react-router-dom";
 
 const FooterStyles = styled.footer`
   position: relative;
@@ -28,7 +29,9 @@ const Footer = ({ logo }) => {
   return (
     <FooterStyles>
       <ShadowStyles />
-      <LogoStyles src={logo} alt="Logo de aluraFlix" />
+      <Link to="/">
+        <LogoStyles src={logo} alt="Logo aluraFlix" />
+      </Link>
     </FooterStyles>
   );
 };

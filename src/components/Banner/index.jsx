@@ -93,7 +93,7 @@ const Banner = () => {
       <ImgContainerStyles>
         <CourseImgStyles
           src={image}
-          alt=""
+          alt="imagen de fondo"
         />
         <Shadow />
       </ImgContainerStyles>

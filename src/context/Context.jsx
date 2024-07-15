@@ -26,7 +26,7 @@ export const messages = {
     valueMissing: "El campo video no puede estar vacío",
     typeMismatch: "El video tiene que ser una URL valida",
     patternMismatch:
-      "La Url del video debe povenir de Youtube con la siguiete estructura https://www.youtube.com/watch?v=",
+      "La Url del video debe povenir de Youtube con la siguiete estructura https://www.youtube.com/embed/",
   },
   descripcion: {
     valueMissing: "El campo descripcion no puede estar vacío",
@@ -51,7 +51,7 @@ const GlobalContextProvider = ({ children }) => {
   const [popup, setPopup] = useState({ show: false, message: "", type: "" });
   const [errorMessages, setErrorMessages] = useState({});
 
-  // llamado Categorias desde API
+  // Llamado de categories desde la API
   useEffect(() => {
     fetch(
       "https://my-json-server.typicode.com/Micky-CM/DataBase-AluraFlix/categories"
@@ -60,7 +60,7 @@ const GlobalContextProvider = ({ children }) => {
       .then((data) => setCategories(data));
   }, []);
 
-  // llamado videos desde API
+  // Llamado de videos desde la API
   useEffect(() => {
     fetch(
       "https://my-json-server.typicode.com/Micky-CM/DataBase-AluraFlix/videos"
@@ -224,7 +224,7 @@ const GlobalContextProvider = ({ children }) => {
       });
   };
 
-  // verificacion de inputs
+  // Verificacion de  los inputs
   const clearInputs = () => {
     setTitle("");
     setCategory("");

@@ -4,6 +4,7 @@ import addActive from "./add-active.png";
 import addInactive from "./add-inactive.png";
 import Button from "../Button";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const HeaderStyles = styled.header`
   width: 100%;
@@ -21,7 +22,7 @@ const HeaderStyles = styled.header`
     justify-content: space-between;
     height: 125px;
     min-height: 125px;
-    padding: 0 20px;
+    padding: 0 40px;
   }
 `;
 
@@ -64,7 +65,9 @@ const Header = ({ logo }) => {
   return (
     <HeaderStyles>
       <ShadowStyles />
-      <LogoStyles src={logo} alt="Logo AluraFlix" />
+      <Link to="/">
+        <LogoStyles src={logo} alt="Logo AluraFlix" />
+      </Link>
       <ButtonContainer>
         <Button path="/" iconActive={homeActive} iconInactive={homeInactive}>
           Home
